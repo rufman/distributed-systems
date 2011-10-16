@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workbench progressCount="24" version="2.0">
+<workbench progressCount="14" version="2.0">
 <workbenchAdvisor/>
 <window height="768" maximized="true" width="1024" x="304" y="205">
 <fastViewData fastViewLocation="1024"/>
@@ -8,19 +8,21 @@
 </perspectiveBar>
 <coolbarLayout locked="0">
 <coolItem id="group.file" itemType="typeGroupMarker"/>
-<coolItem id="org.eclipse.ui.workbench.file" itemType="typeToolBarContribution" x="138" y="31"/>
+<coolItem id="org.eclipse.ui.workbench.file" itemType="typeToolBarContribution" x="96" y="26"/>
 <coolItem id="additions" itemType="typeGroupMarker"/>
-<coolItem id="org.eclipse.debug.ui.launchActionSet" itemType="typeToolBarContribution" x="120" y="31"/>
+<coolItem id="com.python.pydev.debug.actionSet" itemType="typeToolBarContribution" x="62" y="26"/>
+<coolItem id="com.python.pydev.navigate.actionSet" itemType="typeToolBarContribution" x="36" y="26"/>
+<coolItem id="org.eclipse.debug.ui.launchActionSet" itemType="typeToolBarContribution" x="112" y="26"/>
 <coolItem id="org.eclipse.gmt.modisco.common.editor.actionSet" itemType="typeToolBarContribution" x="40" y="31"/>
-<coolItem id="org.eclipse.jdt.ui.JavaElementCreationActionSet" itemType="typeToolBarContribution" x="104" y="31"/>
-<coolItem id="org.eclipse.search.searchActionSet" itemType="typeToolBarContribution" x="76" y="31"/>
+<coolItem id="org.eclipse.jdt.ui.JavaElementCreationActionSet" itemType="typeToolBarContribution" x="96" y="26"/>
+<coolItem id="org.eclipse.search.searchActionSet" itemType="typeToolBarContribution" x="70" y="26"/>
 <coolItem id="org.eclipse.stp.im.resource.actionSet" itemType="typeToolBarContribution" x="40" y="31"/>
-<coolItem id="org.eclipse.ui.edit.text.actionSet.presentation" itemType="typeToolBarContribution" x="124" y="31"/>
+<coolItem id="org.eclipse.ui.edit.text.actionSet.presentation" itemType="typeToolBarContribution" x="114" y="26"/>
 <coolItem id="org.eclipse.wst.xml.ui.perspective.NewFileToolBar" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="org.eclipse.wst.xml.ui.design.DesignToolBar" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="deploymentToolbar" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="group.nav" itemType="typeGroupMarker"/>
-<coolItem id="org.eclipse.ui.workbench.navigate" itemType="typeToolBarContribution" x="184" y="31"/>
+<coolItem id="org.eclipse.ui.workbench.navigate" itemType="typeToolBarContribution" x="172" y="26"/>
 <coolItem id="group.editor" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.ui.DefaultTextEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="org.eclipse.jdt.ui.CompilationUnitEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
@@ -40,24 +42,10 @@
 <part id="4"/>
 <part id="5"/>
 <part id="6"/>
-<part id="7"/>
-<part id="8"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
-<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="PhoneBookServer.java" partName="PhoneBookServer.java" path="/media/data/stephane/Documents/uzh/hs11/distributed-systems/DS2011_A1/DSA1/src/edu/ch/uniz/ds2011/a1/PhoneBookServer.java" title="PhoneBookServer.java" tooltip="DSA1/edu/ch/uniz/ds2011/a1/PhoneBookServer.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/DSA1/edu/ch/uniz/ds2011/a1/PhoneBookServer.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="6376" selectionTopPixel="2118"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="PhoneBookClient.java" partName="PhoneBookClient.java" path="/media/data/stephane/Documents/uzh/hs11/distributed-systems/DS2011_A1/DSA1/src/edu/ch/uniz/ds2011/a1/PhoneBookClient.java" title="PhoneBookClient.java" tooltip="DSA1/edu/ch/uniz/ds2011/a1/PhoneBookClient.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/DSA1/edu/ch/uniz/ds2011/a1/PhoneBookClient.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1968" selectionTopPixel="608"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="IPhoneBookServer.java" partName="IPhoneBookServer.java" path="/media/data/stephane/Documents/uzh/hs11/distributed-systems/DS2011_A1/DSA1/src/edu/ch/uniz/ds2011/a1/IPhoneBookServer.java" title="IPhoneBookServer.java" tooltip="DSA1/edu/ch/uniz/ds2011/a1/IPhoneBookServer.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/DSA1/edu/ch/uniz/ds2011/a1/IPhoneBookServer.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="9" selectionOffset="459" selectionTopPixel="0"/>
-</editor>
 <editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="CLIServerWrapper.java" partName="CLIServerWrapper.java" path="/media/data/stephane/Documents/uzh/hs11/distributed-systems/DS2011_A1/DSA1/src/edu/ch/uniz/ds2011/a1/CLIServerWrapper.java" title="CLIServerWrapper.java" tooltip="DSA1/edu/ch/uniz/ds2011/a1/CLIServerWrapper.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/DSA1/edu/ch/uniz/ds2011/a1/CLIServerWrapper.java"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="709" selectionTopPixel="0"/>
@@ -84,40 +72,16 @@
 </editor>
 </editors>
 <views>
+<view id="org.eclipse.debug.ui.ExpressionView" partName="Expressions">
+<viewState/>
+</view>
 <view id="org.eclipse.jdt.ui.TypeHierarchy" partName="Hierarchy"/>
 <view id="org.eclipse.debug.ui.DebugView" partName="Debug">
 <viewState/>
 </view>
-<view id="org.eclipse.ui.views.TaskList" partName="Tasks">
-<viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.completionField" categoryGroup="none" markerContentGenerator="org.eclipse.ui.ide.tasksGenerator" partName="Tasks">
-<columnWidths org.eclipse.ui.ide.completionField="40" org.eclipse.ui.ide.descriptionField="353" org.eclipse.ui.ide.locationField="73" org.eclipse.ui.ide.markerType="1170" org.eclipse.ui.ide.pathField="143" org.eclipse.ui.ide.priorityField="19" org.eclipse.ui.ide.resourceField="108"/>
-<visible IMemento.internal.id="org.eclipse.ui.ide.completionField"/>
-<visible IMemento.internal.id="org.eclipse.ui.ide.priorityField"/>
-<visible IMemento.internal.id="org.eclipse.ui.ide.descriptionField"/>
-<visible IMemento.internal.id="org.eclipse.ui.ide.resourceField"/>
-<visible IMemento.internal.id="org.eclipse.ui.ide.pathField"/>
-<visible IMemento.internal.id="org.eclipse.ui.ide.locationField"/>
-<visible IMemento.internal.id="org.eclipse.ui.ide.markerType"/>
-</viewState>
-</view>
-<view id="org.eclipse.debug.ui.VariableView" partName="Variables">
-<viewState/>
-</view>
-<view id="org.eclipse.debug.ui.BreakpointView" partName="Breakpoints">
-<viewState>
-<isTrackingSelection value="false"/>
-</viewState>
-</view>
-<view id="org.eclipse.ui.views.ContentOutline" partName="Outline">
-<viewState/>
-</view>
-<view id="org.eclipse.debug.ui.ExpressionView" partName="Expressions">
-<viewState/>
-</view>
 <view id="org.eclipse.ui.views.ProblemView" partName="Problems">
 <viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.severityAndDescriptionField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
-<expanded>
-<category IMemento.internal.id="Warnings"/>
+<expanded>&#x0A;<category IMemento.internal.id="Warnings"/>
 <category IMemento.internal.id="Errors"/>
 </expanded>
 <columnWidths org.eclipse.ui.ide.locationField="0" org.eclipse.ui.ide.markerType="0" org.eclipse.ui.ide.pathField="0" org.eclipse.ui.ide.resourceField="0" org.eclipse.ui.ide.severityAndDescriptionField="0"/>
@@ -127,6 +91,9 @@
 <visible IMemento.internal.id="org.eclipse.ui.ide.locationField"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.markerType"/>
 </viewState>
+</view>
+<view id="org.eclipse.ui.console.ConsoleView" partName="Console">
+<viewState/>
 </view>
 <view id="org.eclipse.jdt.ui.PackageExplorer" partName="Package Explorer">
 <viewState group_libraries="1" layout="2" linkWithEditor="0" rootMode="1" workingSetName="Aggregate for window 1318333726138">
@@ -142,7 +109,6 @@
 <child filterId="org.eclipse.jdt.ui.PackageExplorer.ContainedLibraryFilter" isEnabled="false"/>
 <child filterId="org.eclipse.jdt.ui.PackageExplorer.CuAndClassFileFilter" isEnabled="false"/>
 <child filterId="org.eclipse.jdt.ui.PackageExplorer.NonJavaProjectsFilter" isEnabled="false"/>
-<child filterId="org.eclipse.gmf.codegen.ui.hide_generated" isEnabled="false"/>
 <child filterId="org.eclipse.jdt.internal.ui.PackageExplorer.EmptyInnerPackageFilter" isEnabled="true"/>
 <child filterId="org.eclipse.jdt.ui.PackageExplorer.PackageDeclarationFilter" isEnabled="true"/>
 <child filterId="org.eclipse.jdt.internal.ui.PackageExplorer.EmptyPackageFilter" isEnabled="false"/>
@@ -158,7 +124,27 @@
 </customFilters>
 </viewState>
 </view>
-<view id="org.eclipse.ui.console.ConsoleView" partName="Console">
+<view id="org.eclipse.debug.ui.BreakpointView" partName="Breakpoints">
+<viewState>
+<isTrackingSelection value="false"/>
+</viewState>
+</view>
+<view id="org.eclipse.debug.ui.VariableView" partName="Variables">
+<viewState/>
+</view>
+<view id="org.eclipse.ui.views.TaskList" partName="Tasks">
+<viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.completionField" categoryGroup="none" markerContentGenerator="org.eclipse.ui.ide.tasksGenerator" partName="Tasks">
+<columnWidths org.eclipse.ui.ide.completionField="40" org.eclipse.ui.ide.descriptionField="353" org.eclipse.ui.ide.locationField="73" org.eclipse.ui.ide.markerType="1170" org.eclipse.ui.ide.pathField="143" org.eclipse.ui.ide.priorityField="19" org.eclipse.ui.ide.resourceField="108"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.completionField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.priorityField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.descriptionField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.resourceField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.pathField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.locationField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.markerType"/>
+</viewState>
+</view>
+<view id="org.eclipse.ui.views.ContentOutline" partName="Outline">
 <viewState/>
 </view>
 <view id="org.eclipse.jdt.ui.SourceView" partName="Declaration">
@@ -167,7 +153,6 @@
 <view id="org.eclipse.jdt.ui.JavadocView" partName="Javadoc">
 <viewState/>
 </view>
-<view id="org.eclipse.wst.server.ui.ServersView" partName="Servers"/>
 </views>
 <perspectives activePart="org.eclipse.jdt.ui.PackageExplorer" activePerspective="org.eclipse.jdt.ui.JavaPerspective">
 <perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
@@ -180,8 +165,6 @@
 <alwaysOnActionSet id="org.eclipse.ui.externaltools.ExternalToolsSet"/>
 <alwaysOnActionSet id="org.eclipse.ui.actionSet.keyBindings"/>
 <alwaysOnActionSet id="org.eclipse.ui.actionSet.openFiles"/>
-<alwaysOnActionSet id="org.eclipse.gmt.modisco.common.editor.actionSet"/>
-<alwaysOnActionSet id="org.eclipse.stp.im.resource.actionSet"/>
 <alwaysOnActionSet id="org.eclipse.debug.ui.launchActionSet"/>
 <alwaysOnActionSet id="org.eclipse.jdt.ui.JavaActionSet"/>
 <alwaysOnActionSet id="org.eclipse.jdt.ui.JavaElementCreationActionSet"/>
@@ -291,13 +274,14 @@
 <alwaysOnActionSet id="org.eclipse.ui.externaltools.ExternalToolsSet"/>
 <alwaysOnActionSet id="org.eclipse.ui.actionSet.keyBindings"/>
 <alwaysOnActionSet id="org.eclipse.ui.actionSet.openFiles"/>
-<alwaysOnActionSet id="org.eclipse.gmt.modisco.common.editor.actionSet"/>
-<alwaysOnActionSet id="org.eclipse.stp.im.resource.actionSet"/>
 <alwaysOnActionSet id="org.eclipse.debug.ui.launchActionSet"/>
 <alwaysOnActionSet id="org.eclipse.ui.NavigateActionSet"/>
 <alwaysOnActionSet id="org.eclipse.debug.ui.breakpointActionSet"/>
 <alwaysOnActionSet id="org.eclipse.jdt.debug.ui.JDTDebugActionSet"/>
 <alwaysOnActionSet id="org.eclipse.jdt.ui.JavaActionSet"/>
+<alwaysOnActionSet id="com.python.pydev.navigate.actionSet"/>
+<alwaysOnActionSet id="com.python.pydev.debug.actionSet"/>
+<alwaysOnActionSet id="org.python.pydev.exceptionBreakpoints"/>
 <alwaysOnActionSet id="org.eclipse.debug.ui.debugActionSet"/>
 <show_view_action id="org.eclipse.debug.ui.DebugView"/>
 <show_view_action id="org.eclipse.debug.ui.VariableView"/>
@@ -317,66 +301,48 @@
 <view id="org.eclipse.ui.views.TaskList"/>
 <view id="org.eclipse.ui.console.ConsoleView"/>
 <view id="org.eclipse.debug.ui.DebugView"/>
-<view id="org.eclipse.wst.server.ui.ServersView"/>
 <view id="org.eclipse.debug.ui.VariableView"/>
 <view id="org.eclipse.debug.ui.BreakpointView"/>
 <view id="org.eclipse.debug.ui.ExpressionView"/>
 <view id="org.eclipse.ui.views.ContentOutline"/>
 <fastViewBars/>
-<layout>
-<mainWindow>
-<info folder="true" part="org.eclipse.debug.internal.ui.NavigatorFolderView">
-<folder activePageID="org.eclipse.debug.ui.DebugView" appearance="2" expanded="2">
-<page content="org.eclipse.debug.ui.DebugView" label="Debug"/>
-<page content="org.eclipse.wst.server.ui.ServersView" label="Servers"/>
+<layout>&#x0A;<mainWindow>&#x0A;<info folder="true" part="org.eclipse.debug.internal.ui.NavigatorFolderView">&#x0A;<folder activePageID="org.eclipse.debug.ui.DebugView" appearance="2" expanded="2">&#x0A;<page content="org.eclipse.debug.ui.DebugView" label="Debug"/>
+<page content="org.eclipse.wst.server.ui.ServersView" label="LabelNotFound"/>
 <page content="org.eclipse.ui.views.ResourceNavigator" label="LabelNotFound"/>
 <page content="org.eclipse.jdt.ui.PackageExplorer" label="LabelNotFound"/>
 <page content="org.eclipse.jdt.ui.TypeHierarchy" label="LabelNotFound"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
-<part id="0"/>
-<part id="1"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
 </presentation>
 </folder>
 </info>
-<info folder="true" part="stickyFolderRight" ratio="0.75" ratioLeft="1434" ratioRight="478" relationship="2" relative="org.eclipse.debug.internal.ui.NavigatorFolderView">
-<folder appearance="2" expanded="2">
-<page content="org.eclipse.help.ui.HelpView" label="LabelNotFound"/>
+<info folder="true" part="stickyFolderRight" ratio="0.75" ratioLeft="1434" ratioRight="478" relationship="2" relative="org.eclipse.debug.internal.ui.NavigatorFolderView">&#x0A;<folder appearance="2" expanded="2">&#x0A;<page content="org.eclipse.help.ui.HelpView" label="LabelNotFound"/>
 <page content="org.eclipse.ui.internal.introview" label="LabelNotFound"/>
 <page content="org.eclipse.ui.cheatsheets.views.CheatSheetView" label="LabelNotFound"/>
 </folder>
 </info>
-<info folder="true" part="org.eclipse.debug.internal.ui.ConsoleFolderView" ratio="0.7497382" ratioLeft="716" ratioRight="239" relationship="4" relative="org.eclipse.debug.internal.ui.NavigatorFolderView">
-<folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">
-<page content="org.eclipse.ui.views.TaskList" label="Tasks"/>
+<info folder="true" part="org.eclipse.debug.internal.ui.ConsoleFolderView" ratio="0.7497382" ratioLeft="716" ratioRight="239" relationship="4" relative="org.eclipse.debug.internal.ui.NavigatorFolderView">&#x0A;<folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">&#x0A;<page content="org.eclipse.ui.views.TaskList" label="Tasks"/>
 <page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
 <page content="org.eclipse.ui.views.BookmarkView" label="LabelNotFound"/>
 <page content="org.eclipse.ui.views.PropertySheet" label="LabelNotFound"/>
 <page content="org.eclipse.jdt.debug.ui.DisplayView" label="LabelNotFound"/>
 <page content="org.eclipse.search.SearchResultView" label="LabelNotFound"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
-<part id="0"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
 <part id="1"/>
 </presentation>
 </folder>
 </info>
 <info part="org.eclipse.ui.editorss" ratio="0.45352113" ratioLeft="322" ratioRight="388" relationship="4" relative="org.eclipse.debug.internal.ui.NavigatorFolderView"/>
-<info folder="true" part="org.eclipse.debug.internal.ui.OutlineFolderView" ratio="0.75" ratioLeft="1434" ratioRight="478" relationship="2" relative="org.eclipse.ui.editorss">
-<folder activePageID="org.eclipse.ui.views.ContentOutline" appearance="2" expanded="2">
-<page content="org.eclipse.ui.views.ContentOutline" label="Outline"/>
+<info folder="true" part="org.eclipse.debug.internal.ui.OutlineFolderView" ratio="0.75" ratioLeft="1434" ratioRight="478" relationship="2" relative="org.eclipse.ui.editorss">&#x0A;<folder activePageID="org.eclipse.ui.views.ContentOutline" appearance="2" expanded="2">&#x0A;<page content="org.eclipse.ui.views.ContentOutline" label="Outline"/>
 <page content="org.eclipse.ant.ui.views.AntView" label="LabelNotFound"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
-<part id="0"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
 </presentation>
 </folder>
 </info>
-<info folder="true" part="org.eclipse.debug.internal.ui.ToolsFolderView" ratio="0.3630173" ratioLeft="693" ratioRight="1216" relationship="2" relative="org.eclipse.debug.internal.ui.NavigatorFolderView">
-<folder activePageID="org.eclipse.debug.ui.VariableView" appearance="2" expanded="2">
-<page content="org.eclipse.debug.ui.VariableView" label="Variables"/>
+<info folder="true" part="org.eclipse.debug.internal.ui.ToolsFolderView" ratio="0.3630173" ratioLeft="693" ratioRight="1216" relationship="2" relative="org.eclipse.debug.internal.ui.NavigatorFolderView">&#x0A;<folder activePageID="org.eclipse.debug.ui.VariableView" appearance="2" expanded="2">&#x0A;<page content="org.eclipse.debug.ui.VariableView" label="Variables"/>
 <page content="org.eclipse.debug.ui.BreakpointView" label="Breakpoints"/>
 <page content="org.eclipse.debug.ui.ExpressionView" label="Expressions"/>
 <page content="org.eclipse.debug.ui.RegisterView" label="LabelNotFound"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
-<part id="0"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
 <part id="1"/>
 <part id="2"/>
 </presentation>
@@ -392,19 +358,14 @@
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/DSA1/edu/ch/uniz/ds2011/a1/CLIClientWrapper.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/DSA1/edu/ch/uniz/ds2011/a1/PhoneBookServer.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/DSA1/edu/ch/uniz/ds2011/a1/PhoneBookClient.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/DSA1/edu/ch/uniz/ds2011/a1/PhoneBookRecord.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/DSA1/edu/ch/uniz/ds2011/a1/IPhoneBookServer.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/DSA1/edu/ch/uniz/ds2011/a1/PhoneBookRecord.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/DSA1/edu/ch/uniz/ds2011/a1/PhoneBookServer.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/DSA1/edu/ch/uniz/ds2011/a1/CLIClientWrapper.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/DSA1/edu/ch/uniz/ds2011/a1/IPhoneBookServer.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/DSA1/edu/ch/uniz/ds2011/a1/PhoneBookClient.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/DSA1/edu/ch/uniz/ds2011/a1/IPhoneBookServer.java"/>
 </editors>
-<item historyLabel="PhoneBookRecord.java" index="3">
-<position info="not_deleted" x="457" y="0"/>
-</item>
-<item historyLabel="PhoneBookClient.java" index="2">
-<position/>
-</item>
 <item historyLabel="PhoneBookClient.java" index="2">
 <position info="not_deleted" x="2019" y="14"/>
 </item>
@@ -462,7 +423,7 @@
 <item historyLabel="CLIClientWrapper.java" index="0">
 <position info="not_deleted" x="946" y="0"/>
 </item>
-<item historyLabel="IPhoneBookServer.java" index="4">
+<item historyLabel="IPhoneBookServer.java" index="3">
 <position info="not_deleted" x="459" y="9"/>
 </item>
 <item historyLabel="PhoneBookClient.java" index="2">
@@ -477,25 +438,25 @@
 <item historyLabel="PhoneBookClient.java" index="2">
 <position/>
 </item>
-<item historyLabel="PhoneBookRecord.java" index="5">
+<item historyLabel="PhoneBookRecord.java" index="4">
 <position info="not_deleted" x="314" y="0"/>
 </item>
-<item historyLabel="PhoneBookServer.java" index="6">
+<item historyLabel="PhoneBookServer.java" index="5">
 <position info="not_deleted" x="4240" y="0"/>
 </item>
-<item historyLabel="PhoneBookServer.java" index="6">
+<item historyLabel="PhoneBookServer.java" index="5">
 <position info="not_deleted" x="2287" y="0"/>
 </item>
-<item historyLabel="PhoneBookServer.java" index="6">
+<item historyLabel="PhoneBookServer.java" index="5">
 <position info="not_deleted" x="2351" y="0"/>
 </item>
-<item historyLabel="PhoneBookServer.java" index="6">
+<item historyLabel="PhoneBookServer.java" index="5">
 <position info="not_deleted" x="2287" y="0"/>
 </item>
-<item historyLabel="PhoneBookServer.java" index="6">
+<item historyLabel="PhoneBookServer.java" index="5">
 <position info="not_deleted" x="2351" y="0"/>
 </item>
-<item historyLabel="PhoneBookServer.java" index="6">
+<item historyLabel="PhoneBookServer.java" index="5">
 <position info="not_deleted" x="3832" y="0"/>
 </item>
 <item historyLabel="PhoneBookClient.java" index="2">
@@ -504,40 +465,40 @@
 <item historyLabel="PhoneBookClient.java" index="2">
 <position info="not_deleted" x="2486" y="0"/>
 </item>
-<item historyLabel="CLIClientWrapper.java" index="7">
+<item historyLabel="CLIClientWrapper.java" index="6">
 <position info="not_deleted" x="720" y="0"/>
 </item>
 <item historyLabel="PhoneBookClient.java" index="2">
 <position/>
 </item>
-<item historyLabel="PhoneBookRecord.java" index="5">
+<item historyLabel="PhoneBookRecord.java" index="4">
 <position info="not_deleted" x="0" y="0"/>
 </item>
 <item historyLabel="PhoneBookClient.java" index="2">
 <position/>
 </item>
-<item historyLabel="IPhoneBookServer.java" index="8">
+<item historyLabel="IPhoneBookServer.java" index="7">
 <position info="not_deleted" x="459" y="9"/>
 </item>
 <item historyLabel="PhoneBookClient.java" index="2">
 <position/>
 </item>
-<item historyLabel="PhoneBookServer.java" index="6">
+<item historyLabel="PhoneBookServer.java" index="5">
 <position info="not_deleted" x="3832" y="0"/>
 </item>
-<item historyLabel="IPhoneBookServer.java" index="8">
+<item historyLabel="IPhoneBookServer.java" index="7">
 <position info="not_deleted" x="459" y="9"/>
 </item>
 <item historyLabel="PhoneBookClient.java" index="2">
 <position/>
 </item>
-<item historyLabel="PhoneBookRecord.java" index="5">
+<item historyLabel="PhoneBookRecord.java" index="4">
 <position info="not_deleted" x="0" y="0"/>
 </item>
 <item historyLabel="PhoneBookClient.java" index="2">
 <position/>
 </item>
-<item historyLabel="CLIClientWrapper.java" index="7">
+<item historyLabel="CLIClientWrapper.java" index="6">
 <position info="not_deleted" x="946" y="0"/>
 </item>
 <item historyLabel="PhoneBookClient.java" index="2">
@@ -546,8 +507,14 @@
 <item historyLabel="PhoneBookClient.java" index="2">
 <position info="not_deleted" x="1968" y="0"/>
 </item>
-<item active="true" historyLabel="PhoneBookServer.java" index="6">
+<item historyLabel="PhoneBookServer.java" index="5">
 <position info="not_deleted" x="3832" y="0"/>
+</item>
+<item historyLabel="PhoneBookClient.java" index="8">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item active="true" historyLabel="IPhoneBookServer.java" index="9">
+<position info="not_deleted" x="0" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
