@@ -1,0 +1,23 @@
+package edu.ch.uniz.ds2011.a1;
+
+import java.io.InputStream;
+import java.util.ArrayList;
+import edu.ch.uniz.ds2011.a1.PhoneBookRecord;
+import edu.ch.uniz.ds2011.a1.AcmeLocator;
+
+public class PhoneBookServer extends IPhoneBookServer {
+	
+	@Override
+	protected ArrayList<PhoneBookRecord> loadData(InputStream dbis) {
+		
+		return null;
+	}
+
+	@Override
+	public void start() {
+		AcmeLocator acme = new AcmeLocator();
+		InputStream phonebook_stream = acme.getPhoneBook();
+
+	}
+
+}

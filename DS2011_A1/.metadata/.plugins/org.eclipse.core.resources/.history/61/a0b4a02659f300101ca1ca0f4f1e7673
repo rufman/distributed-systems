@@ -1,0 +1,33 @@
+package edu.ch.uniz.ds2011.a1;
+
+import java.io.InputStream;
+import java.util.ArrayList;
+
+public class PhoneBookServer extends IPhoneBookServer {
+	
+	@Override
+	protected ArrayList<PhoneBookRecord> loadData(InputStream dbis) {
+		int data = dbis.read();
+		while(data != -1) {
+			if(data == ','){
+				
+			}
+			
+
+		  data = dbis.read();
+		}
+		dbis.close();
+		return null;
+	}
+
+	@Override
+	public void start() {
+		// Get the raw phone records from acme.txt
+		AcmeLocator acme = new AcmeLocator();
+		InputStream phonebook_stream = acme.getPhoneBook();
+		
+		loadData(phonebook_stream); //load the raw phone records into the PhoneBook
+		
+	}
+
+}

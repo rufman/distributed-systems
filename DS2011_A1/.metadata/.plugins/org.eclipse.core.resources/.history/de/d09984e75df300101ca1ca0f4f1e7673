@@ -1,0 +1,50 @@
+package edu.ch.uniz.ds2011.a1;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
+
+public class PhoneBookServer extends IPhoneBookServer {
+	
+	@Override
+	protected ArrayList<PhoneBookRecord> loadData(InputStream dbis) {
+		int data;
+		String line;
+		ArrayList<PhoneBookRecord> phone_array = new ArrayList<PhoneBookRecord>();
+		
+		if (dbis != null) {
+            char buffer;
+            
+            try {
+            	try{
+            		Reader reader = new BufferedReader(new InputStreamReader(dbis, "UTF-8"));
+            	} catch (UnsupportedEncodingException e) {
+            		// TODO Auto-generated catch block
+            		e.printStackTrace();
+            	}                
+                reader.readLine();
+                if(line != null){
+                	PhoneBookRecord phone_record = new PhoneBookRecord(line);
+            		phone_array.add(phone_record);
+                }
+            } finally {
+            	dbis.close();
+            }
+       }
+		return null;
+	}
+
+	@Override
+	public void start() {
+		// Get the raw phone records from acme.txt
+		AcmeLocator acme = new AcmeLocator();
+		InputStream phonebook_stream = acme.getPhoneBook();
+		
+		loadData(phonebook_stream); //load the raw phone records into the PhoneBook
+		
+	}
+
+}

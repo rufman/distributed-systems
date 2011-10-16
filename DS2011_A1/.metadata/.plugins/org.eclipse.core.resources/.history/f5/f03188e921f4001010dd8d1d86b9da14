@@ -1,0 +1,134 @@
+package edu.ch.uniz.ds2011.a1;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.io.Reader;
+import java.io.UnsupportedEncodingException;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.util.ArrayList;
+
+public class PhoneBookServer extends IPhoneBookServer {
+	
+	@Override
+	protected ArrayList<PhoneBookRecord> loadData(InputStream dbis) {
+		String line = ""; // line buffer
+		ArrayList<PhoneBookRecord> phone_array = new ArrayList<PhoneBookRecord>(); //phone record array that will be returned
+		
+		if (dbis != null) {
+            try {
+            	BufferedReader reader = null;
+				try {
+					reader = new BufferedReader(new InputStreamReader(dbis, "UTF-8")); // Create a reader for the input stream
+				} catch (UnsupportedEncodingException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}              
+                
+				// Read on a line by line basis and add the phone record to the array until all entries have been added
+				while(line != null){
+					line = reader.readLine();
+					if(line != null){
+						PhoneBookRecord phone_record = new PhoneBookRecord(line);
+						phone_array.add(phone_record);
+					}
+                }
+				
+                dbis.close();
+            }catch (IOException e) {
+            	// TODO Auto-generated catch block
+				e.printStackTrace();
+            }
+		}
+		return phone_array;
+	}
+
+	@Override
+	public void start() {
+		// Get the raw phone records from acme.txt
+		AcmeLocator acme = new AcmeLocator();
+		InputStream phonebook_stream = acme.getPhoneBook();
+		ArrayList<PhoneBookRecord> phonebook_array = new ArrayList<PhoneBookRecord>();
+		ServerSocket serverSocket = null;
+		Session clientSession = null;
+		
+		phonebook_array = loadData(phonebook_stream); //load the raw phone records into the PhoneBook
+		
+		//create socket
+		try {
+		    serverSocket = new ServerSocket(PORT);
+		} catch (IOException e) {
+		    System.exit(-1);
+		}
+		
+		//accept connections
+		while(!serverSocket.isClosed()){
+			try {
+				Socket clientSocket = serverSocket.accept(); // Waits for client connection
+				// create the client session, demonize the thread and start is
+				// the Session meta class will now do the message handeling (in a threaded fashion)
+				clientSession = new Session(clientSocket, phonebook_array);
+				clientSession.setDaemon(true);
+				clientSession.start();
+				System.out.println("connected client");
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}	
+			
+		// start client threading
+	}
+	
+	public class Session extends Thread
+	{
+		private Socket socket;
+		private ArrayList<PhoneBookRecord> phonebook_array;
+		private BufferedReader reader; //to read from client
+		private PrintWriter writer; //to write to client
+		private String name;
+
+	    public Session(Socket socket, ArrayList<PhoneBookRecord> phonebook_array) throws IOException
+	    {
+	        this.socket = socket;
+	        this.phonebook_array = phonebook_array;
+	        reader = new BufferedReader(new InputStreamReader(socket.getInputStream())); //to read form client
+	        writer = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()));//to write to client
+	    }
+
+	    public void run()
+	    {
+	        try
+	        {
+	            for(; socket.isConnected() && !socket.isClosed(); process(reader.readLine())); //endless loop that reads messages from client --> ends wenn client disconnects
+	        }
+	        catch(Exception e){ e.printStackTrace(); }
+	    }
+	    
+	    private void process(String line){
+	    	String[] data = line.split("##");
+	    	String command = data[0];
+	    	String args = data[1];
+	    	
+	    	if (line.equals("getUserDetails")) {
+                String users;
+                for(int i=0; i < phonebook_array.size(); i++){
+                	next_record = phonebook_array.get(i).getName();
+                	if(next_record == args){
+                		next_record.toString();
+                	}
+                }
+            } else if (line.equals("getUsersByCity")) {
+               
+            } else if (line.equals("getUserByPhone")) {
+                
+            } else if (line.equals("getUserByDetails")) {
+               
+            }
+	    }
+	} 
+}

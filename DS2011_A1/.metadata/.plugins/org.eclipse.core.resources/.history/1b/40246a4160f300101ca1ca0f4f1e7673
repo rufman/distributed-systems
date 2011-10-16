@@ -1,0 +1,71 @@
+package edu.ch.uniz.ds2011.a1;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.Reader;
+import java.io.UnsupportedEncodingException;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.util.ArrayList;
+
+public class PhoneBookServer extends IPhoneBookServer {
+	
+	@Override
+	protected ArrayList<PhoneBookRecord> loadData(InputStream dbis) {
+		String line = ""; // line buffer
+		ArrayList<PhoneBookRecord> phone_array = new ArrayList<PhoneBookRecord>(); //phone record array that will be returned
+		
+		if (dbis != null) {
+            try {
+            	BufferedReader reader = null;
+				try {
+					reader = new BufferedReader(new InputStreamReader(dbis, "UTF-8")); // Create a reader for the input stream
+				} catch (UnsupportedEncodingException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}              
+                
+				// Read on a line by line basis and add the phone record to the array until all entries have been added
+				while(line != null){
+					line = reader.readLine();
+                	PhoneBookRecord phone_record = new PhoneBookRecord(line);
+            		phone_array.add(phone_record);
+                }
+				
+                dbis.close();
+            }catch (IOException e) {
+            	// TODO Auto-generated catch block
+				e.printStackTrace();
+            }
+		}
+		return phone_array;
+	}
+
+	@Override
+	public void start() {
+		// Get the raw phone records from acme.txt
+		AcmeLocator acme = new AcmeLocator();
+		InputStream phonebook_stream = acme.getPhoneBook();
+		ArrayList<PhoneBookRecord> phonebook_array = new ArrayList<PhoneBookRecord>();
+		ServerSocket serverSocket = null;
+		
+		phonebook_array = loadData(phonebook_stream); //load the raw phone records into the PhoneBook
+		
+		//create socket
+		try {
+		    serverSocket = new ServerSocket(PORT);
+		} catch (IOException e) {
+		    System.exit(-1);
+		}
+		
+		//accept connections
+		while(!serverSocket.isClosed()){
+			Socket clientSocket = serverSocket.accept();
+		}	
+			
+		// start client threading
+	}
+
+}
