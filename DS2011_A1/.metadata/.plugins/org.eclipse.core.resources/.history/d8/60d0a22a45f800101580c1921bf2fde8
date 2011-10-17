@@ -1,0 +1,63 @@
+package edu.ch.uniz.ds2011.a1;
+
+import java.io.InputStream;
+import java.util.ArrayList;
+
+import org.apache.xmlrpc.server.PropertyHandlerMapping;
+import org.apache.xmlrpc.server.XmlRpcServer;
+import org.apache.xmlrpc.server.XmlRpcServerConfigImpl;
+import org.apache.xmlrpc.webserver.WebServer;
+
+public class PhoneBookRPCServer extends IPhoneBookServer {
+
+	@Override
+	protected ArrayList<PhoneBookRecord> loadData(InputStream dbis) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void start() {
+		// TODO Auto-generated method stub
+		WebServer webServer = new WebServer(port);
+        
+        XmlRpcServer xmlRpcServer = webServer.getXmlRpcServer();
+      
+        PropertyHandlerMapping phm = new PropertyHandlerMapping();
+        /* Load handler definitions from a property file.
+         * The property file might look like:
+         *   Calculator=org.apache.xmlrpc.demo.Calculator
+         *   org.apache.xmlrpc.demo.proxy.Adder=org.apache.xmlrpc.demo.proxy.AdderImpl
+         */
+        phm.load(Thread.currentThread().getContextClassLoader(),
+                 "MyHandlers.properties");
+
+        /* You may also provide the handler classes directly,
+         * like this:
+         * phm.addHandler("Calculator",
+         *     org.apache.xmlrpc.demo.Calculator.class);
+         * phm.addHandler(org.apache.xmlrpc.demo.proxy.Adder.class.getName(),
+         *     org.apache.xmlrpc.demo.proxy.AdderImpl.class);
+         */
+        phm.addHandler("Calculator", org.apache.xmlrpc.demo.Calculator.class);
+        xmlRpcServer.setHandlerMapping(phm);
+        
+      
+        XmlRpcServerConfigImpl serverConfig =
+            (XmlRpcServerConfigImpl) xmlRpcServer.getConfig();
+        serverConfig.setEnabledForExtensions(true);
+        serverConfig.setContentLengthOptional(false);
+
+        webServer.start();
+	}
+	
+	public class GetUserByDetails {
+		private ArrayList<PhoneBookRecord> phonebook_array;
+		for(int i=0; i < phonebook_array.size(); i++){
+	    	PhoneBookRecord next_record = phonebook_array.get(i);
+	    	if(next_record.getName().equals(args)){
+	    		users = users.concat(next_record.toString().concat(IPhoneBookServer.SEP_PARTS));
+	    	}
+	    }
+	}
+}

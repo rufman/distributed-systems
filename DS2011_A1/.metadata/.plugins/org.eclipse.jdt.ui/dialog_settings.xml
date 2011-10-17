@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
+	<item value="/home/stephane/Documents/School/uzh/hs11/distributed-systems/uebungen/distributed-systems/DS2011_A1/lib" key="org.eclipse.jdt.ui.lastextjar"/>
 	<section name="OptionalMessageDialog.hide.">
 		<item value="true" key="org.eclipse.jdt.ui.typecomment.deprecated"/>
 	</section>
@@ -25,12 +26,18 @@
 	</section>
 	<section name="JavaElementSearchActions">
 	</section>
+	<section name="BuildPathsPropertyPage">
+		<item value="2" key="pageIndex"/>
+	</section>
 	<section name="DialogBounds_SuperInterfaceSelectionDialog">
 		<item value="414" key="DIALOG_WIDTH"/>
 		<item value="-57" key="DIALOG_Y_ORIGIN"/>
 		<item value="127" key="DIALOG_X_ORIGIN"/>
 		<item value="599" key="DIALOG_HEIGHT"/>
 		<item value="1|Ubuntu|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
+	</section>
+	<section name="ClasspathContainerSelectionPage">
+		<item value="3" key="index"/>
 	</section>
 	<section name="org.eclipse.jdt.internal.ui.dialogs.OpenTypeSelectionDialog2">
 		<item value="true" key="ShowStatusLine"/>

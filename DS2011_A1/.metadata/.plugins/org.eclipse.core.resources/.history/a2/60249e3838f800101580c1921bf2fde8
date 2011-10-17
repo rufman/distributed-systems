@@ -1,0 +1,50 @@
+package edu.ch.uniz.ds2011.a1;
+
+import java.util.ArrayList;
+import org.apache.xmlrpc.client.XmlRpcClient;
+import org.apache.xmlrpc.client.XmlRpcClientConfigImpl;
+import org.apache.xmlrpc.client.XmlRpcLocalTransportFactory;
+
+public class PhoneBookRPCClient implements IPhoneBookClient {
+
+	@Override
+	public void connect(String address) {
+		XmlRpcClientConfigImpl config = new XmlRpcClientConfigImpl();
+		config.setServerURL(new URL("http://127.0.0.1:8080/xmlrpc"));
+		
+		XmlRpcClient client = new XmlRpcClient();
+		client.setConfig(config);
+	}
+
+	@Override
+	public void disconnect() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public PhoneBookRecord getUserByDetails(String userName, String address,
+			Long zipCode, String cityName) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public PhoneBookRecord getUserByPhone(String phoneNumber) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ArrayList<PhoneBookRecord> getUserDetails(String userName) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ArrayList<PhoneBookRecord> getUsersByCity(String cityName) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

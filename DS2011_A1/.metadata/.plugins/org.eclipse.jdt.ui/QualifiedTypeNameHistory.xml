@@ -1,2 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<qualifiedTypeNameHistroy/>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="org.apache.xmlrpc.client.XmlRpcLocalTransportFactory"/>
+<fullyQualifiedTypeName name="java.net.URL"/>
+<fullyQualifiedTypeName name="org.apache.xmlrpc.server.XmlRpcServerConfigImpl"/>
+<fullyQualifiedTypeName name="org.apache.xmlrpc.server.PropertyHandlerMapping"/>
+<fullyQualifiedTypeName name="org.apache.xmlrpc.server.XmlRpcServer"/>
+<fullyQualifiedTypeName name="edu.ch.uniz.ds2011.a1.PhoneBookRPCServer"/>
+<fullyQualifiedTypeName name="edu.ch.uniz.ds2011.a1.PhoneBookRPCServer.PhoneBookActions"/>
+<fullyQualifiedTypeName name="org.apache.xmlrpc.client.XmlRpcCommonsTransportFactory"/>
+</qualifiedTypeNameHistroy>

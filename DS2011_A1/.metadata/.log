@@ -891,3 +891,45 @@ org.eclipse.core.runtime.AssertionFailedException: unknown saveable: org.eclipse
 	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:514)
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1311)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1287)
+
+!ENTRY org.eclipse.jdt.ui 4 10001 2011-10-17 00:20:44.756
+!MESSAGE Internal Error
+!STACK 1
+Java Model Exception: Java Model Status [getUserByDetails [in [Working copy] PhoneBookRPCServer.java [in edu.ch.uniz.ds2011.a1 [in <project root> [in DSA1]]]] does not exist]
+	at org.eclipse.jdt.internal.core.JavaElement.newNotPresentException(JavaElement.java:492)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:526)
+	at org.eclipse.jdt.internal.core.JavaElement.getElementInfo(JavaElement.java:252)
+	at org.eclipse.jdt.internal.core.JavaElement.getElementInfo(JavaElement.java:238)
+	at org.eclipse.jdt.internal.core.SourceRefElement.getSourceRange(SourceRefElement.java:218)
+	at org.eclipse.jdt.internal.core.Member.getJavadocRange(Member.java:266)
+	at org.eclipse.jdt.internal.ui.text.javadoc.JavadocContentAccess2.getHTMLContentFromSource(JavadocContentAccess2.java:562)
+	at org.eclipse.jdt.internal.ui.text.javadoc.JavadocContentAccess2.getHTMLContent(JavadocContentAccess2.java:458)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavadocHover.getHoverInfo(JavadocHover.java:555)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavadocHover.internalGetHoverInfo(JavadocHover.java:512)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavadocHover.getHoverInfo2(JavadocHover.java:495)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:129)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:82)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:166)
+!SUBENTRY 1 org.eclipse.jdt.core 4 969 2011-10-17 00:20:44.756
+!MESSAGE getUserByDetails [in [Working copy] PhoneBookRPCServer.java [in edu.ch.uniz.ds2011.a1 [in <project root> [in DSA1]]]] does not exist
+
+!ENTRY org.eclipse.jdt.ui 4 10001 2011-10-17 00:21:42.807
+!MESSAGE Internal Error
+!STACK 1
+Java Model Exception: Java Model Status [GetUserByDetails [in [Working copy] PhoneBookRPCServer.java [in edu.ch.uniz.ds2011.a1 [in <project root> [in DSA1]]]] does not exist]
+	at org.eclipse.jdt.internal.core.JavaElement.newNotPresentException(JavaElement.java:492)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:526)
+	at org.eclipse.jdt.internal.core.JavaElement.getElementInfo(JavaElement.java:252)
+	at org.eclipse.jdt.internal.core.JavaElement.getElementInfo(JavaElement.java:238)
+	at org.eclipse.jdt.internal.core.SourceRefElement.getSourceRange(SourceRefElement.java:218)
+	at org.eclipse.jdt.internal.core.Member.getJavadocRange(Member.java:266)
+	at org.eclipse.jdt.internal.ui.text.javadoc.JavadocContentAccess2.getHTMLContentFromSource(JavadocContentAccess2.java:562)
+	at org.eclipse.jdt.internal.ui.text.javadoc.JavadocContentAccess2.getHTMLContent(JavadocContentAccess2.java:458)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavadocHover.getHoverInfo(JavadocHover.java:555)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavadocHover.internalGetHoverInfo(JavadocHover.java:512)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavadocHover.getHoverInfo2(JavadocHover.java:495)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:129)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:82)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:166)
+!SUBENTRY 1 org.eclipse.jdt.core 4 969 2011-10-17 00:21:42.808
+!MESSAGE GetUserByDetails [in [Working copy] PhoneBookRPCServer.java [in edu.ch.uniz.ds2011.a1 [in <project root> [in DSA1]]]] does not exist

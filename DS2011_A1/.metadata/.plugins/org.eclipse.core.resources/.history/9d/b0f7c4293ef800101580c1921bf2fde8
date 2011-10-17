@@ -1,0 +1,23 @@
+package edu.ch.uniz.ds2011.a1;
+
+import java.io.InputStream;
+import java.util.ArrayList;
+import org.apache.xmlrpc.server.XmlRpcServer;
+import org.apache.xmlrpc.server.XmlRpcServerConfigImpl;
+
+public class PhoneBookRPCServer extends IPhoneBookServer {
+
+	@Override
+	protected ArrayList<PhoneBookRecord> loadData(InputStream dbis) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void start() {
+		// TODO Auto-generated method stub
+		XmlRpcServer server = new XmlRpcServer();
+		server.
+	}
+
+}

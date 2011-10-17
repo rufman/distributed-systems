@@ -1,0 +1,29 @@
+package edu.ch.uniz.ds2011.a1;
+
+import java.io.InputStream;
+import java.util.ArrayList;
+import org.apache.xmlrpc.webserver.WebServer;
+
+public class PhoneBookRPCServer extends IPhoneBookServer {
+
+	@Override
+	protected ArrayList<PhoneBookRecord> loadData(InputStream dbis) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void start() {
+		// TODO Auto-generated method stub
+		PropertyHandlerMapping mapping = new PropertyHandlerMapping();
+		ClassLoader cl = Thread.currentThread().getContextClassLoader();
+		mapping.load(cl, propertyFile);
+		WebServer webServer = new WebServer(port);
+		XmlRpcServerConfigImpl config = new XmlRpcServerConfigImpl();
+		XmlRpcServer server = webServer.getXmlRpcServer();
+		server.setConfig(config);
+		server.setHandlerMapping(mapping);
+		webServer.start();
+	}
+
+}

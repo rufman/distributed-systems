@@ -52,7 +52,7 @@ public class PhoneBookServer extends IPhoneBookServer {
 		InputStream phonebook_stream = acme.getPhoneBook();
 		ArrayList<PhoneBookRecord> phonebook_array = new ArrayList<PhoneBookRecord>();
 		ServerSocket serverSocket = null;
-		Session clientSession = null;
+		ServerSession serverSession = null;
 		
 		phonebook_array = loadData(phonebook_stream); //load the raw phone records into the PhoneBook
 		
@@ -63,22 +63,44 @@ public class PhoneBookServer extends IPhoneBookServer {
 		    System.exit(-1);
 		}
 		
-		//accept connections
-		while(!serverSocket.isClosed()){
-			try {
-				Socket clientSocket = serverSocket.accept(); // Waits for client connection
-				// create the client session, demonize the thread and start is
-				// the Session meta class will now do the message handeling (in a threaded fashion)
-				clientSession = new Session(clientSocket, phonebook_array);
-				clientSession.setDaemon(true);
-				clientSession.start();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+		try {
+			serverSession = new ServerSession(serverSocket, phonebook_array);
+			//serverSession.setDaemon(true);// start client threading
+			serverSession.start();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	
+	public class ServerSession extends Thread{
+		private ServerSocket socket = null;
+		private ArrayList<PhoneBookRecord> phonebook_array;
+		private Session clientSession = null;
+		
+		public ServerSession(ServerSocket socket, ArrayList<PhoneBookRecord> phonebook_array) throws IOException
+	    {
+	        this.socket = socket;
+	        this.phonebook_array = phonebook_array;
+	    }
+		
+		public void run(){
+			//accept connections
+			while(!socket.isClosed()){
+				try {
+					Socket clientSocket = socket.accept(); // Waits for client connection
+					// create the client session, demonize the thread and start is
+					// the Session meta class will now do the message handeling (in a threaded fashion)
+					clientSession = new Session(clientSocket, phonebook_array);// start client threading
+					//clientSession.setDaemon(true);
+					clientSession.start();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
-		}	
-			
-		// start client threading
+		}
 	}
 	
 	public class Session extends Thread
@@ -117,7 +139,7 @@ public class PhoneBookServer extends IPhoneBookServer {
 	    			socket.close();
 	    		}else if (command.equals("getUserDetails")) {
 	    			String args = data[1].trim();
-	                String users = null;
+	                String users = "";
 	                for(int i=0; i < phonebook_array.size(); i++){
 	                	PhoneBookRecord next_record = phonebook_array.get(i);
 	                	if(next_record.getName().equals(args)){
@@ -127,7 +149,7 @@ public class PhoneBookServer extends IPhoneBookServer {
 	                write(users);
 	            } else if (command.equals("getUsersByCity")) {
 	            	String args = data[1].trim();
-	            	String users = null;
+	            	String users = "";
 	                for(int i=0; i < phonebook_array.size(); i++){
 	                	PhoneBookRecord next_record = phonebook_array.get(i);
 	                	if(next_record.getCity().equals(args)){
@@ -138,7 +160,7 @@ public class PhoneBookServer extends IPhoneBookServer {
 	               
 	            } else if (command.equals("getUserByPhone")) {
 	            	String args = data[1].trim();
-	            	String users = null;
+	            	String users = "";
 	                for(int i=0; i < phonebook_array.size(); i++){
 	                	PhoneBookRecord next_record = phonebook_array.get(i);
 	                	if(next_record.getPhoneNumber().equals(args)){
@@ -149,7 +171,7 @@ public class PhoneBookServer extends IPhoneBookServer {
 	                
 	            } else if (command.equals("getUserByDetails")) {
 	            	String args = data[1].trim();
-	            	String users = null;
+	            	String users = "";
 	            	String[] data_args = args.split(IPhoneBookServer.SEP_ARGUMENTS);
 	            	String userName = data_args[0].trim();
 	            	String address = data_args[1].trim();

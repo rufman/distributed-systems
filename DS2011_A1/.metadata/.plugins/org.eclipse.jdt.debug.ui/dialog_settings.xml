@@ -4,10 +4,10 @@
 		<item value="true" key="ShowStatusLine"/>
 		<item value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#x0A;&lt;History&gt;&#x0A;&lt;historyRootNode&gt;&#x0A;&lt;infoNode&gt;=DSA1/&amp;lt;edu.ch.uniz.ds2011.a1{CLIServerWrapper.java[CLIServerWrapper&lt;/infoNode&gt;&#x0A;&lt;infoNode&gt;=DSA1/&amp;lt;edu.ch.uniz.ds2011.a1{CLIClientWrapper.java[CLIClientWrapper&lt;/infoNode&gt;&#x0A;&lt;/historyRootNode&gt;&#x0A;&lt;/History&gt;" key="History"/>
 		<section name="DialogBoundsSettings">
-			<item value="598" key="DIALOG_WIDTH"/>
-			<item value="-9" key="DIALOG_Y_ORIGIN"/>
-			<item value="165" key="DIALOG_X_ORIGIN"/>
-			<item value="470" key="DIALOG_HEIGHT"/>
+			<item value="600" key="DIALOG_WIDTH"/>
+			<item value="27" key="DIALOG_Y_ORIGIN"/>
+			<item value="500" key="DIALOG_HEIGHT"/>
+			<item value="140" key="DIALOG_X_ORIGIN"/>
 			<item value="1|Ubuntu|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
 		</section>
 	</section>
