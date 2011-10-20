@@ -1,0 +1,129 @@
+package edu.ch.uniz.ds2011.a1;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
+import java.net.ServerSocket;
+import java.util.ArrayList;
+
+import org.apache.xmlrpc.XmlRpcException;
+import org.apache.xmlrpc.server.PropertyHandlerMapping;
+import org.apache.xmlrpc.server.XmlRpcServer;
+import org.apache.xmlrpc.server.XmlRpcServerConfigImpl;
+import org.apache.xmlrpc.webserver.WebServer;
+
+import edu.ch.uniz.ds2011.a1.PhoneBookServer.Session;
+
+public class PhoneBookRPCServer extends IPhoneBookServer {
+	private ArrayList<PhoneBookRecord> phonebook_array;
+	
+	@Override
+	protected ArrayList<PhoneBookRecord> loadData(InputStream dbis) {
+		String line = ""; // line buffer
+		ArrayList<PhoneBookRecord> phone_array = new ArrayList<PhoneBookRecord>(); //phone record array that will be returned
+		
+		if (dbis != null) {
+            try {
+            	BufferedReader reader = null;
+				try {
+					reader = new BufferedReader(new InputStreamReader(dbis, "UTF-8")); // Create a reader for the input stream
+				} catch (UnsupportedEncodingException e1) {
+					e1.printStackTrace();
+				}              
+                
+				// Read on a line by line basis and add the phone record to the array until all entries have been added
+				while(line != null){
+					line = reader.readLine();
+					if(line != null){
+						PhoneBookRecord phone_record = new PhoneBookRecord(line);
+						phone_array.add(phone_record);
+					}
+                }
+				
+                dbis.close();
+            }catch (IOException e) {
+				e.printStackTrace();
+            }
+		}
+		return phone_array;
+	}
+
+	@Override
+	public void start() {
+		AcmeLocator acme = new AcmeLocator();
+		InputStream phonebook_stream = acme.getPhoneBook();
+		
+		phonebook_array = loadData(phonebook_stream); //load the raw phone records into the PhoneBook
+		
+		// TODO Auto-generated method stub
+		WebServer webServer = new WebServer(PORT);
+        
+        XmlRpcServer xmlRpcServer = webServer.getXmlRpcServer();
+      
+        PropertyHandlerMapping phm = new PropertyHandlerMapping();
+        /* Load handler definitions from a property file.
+         * The property file might look like:
+         *   Calculator=org.apache.xmlrpc.demo.Calculator
+         *   org.apache.xmlrpc.demo.proxy.Adder=org.apache.xmlrpc.demo.proxy.AdderImpl
+         */
+        /*phm.load(Thread.currentThread().getContextClassLoader(),
+                 "MyHandlers.properties");*/
+
+        /* You may also provide the handler classes directly,
+         * like this:
+         * phm.addHandler("Calculator",
+         *     org.apache.xmlrpc.demo.Calculator.class);
+         * phm.addHandler(org.apache.xmlrpc.demo.proxy.Adder.class.getName(),
+         *     org.apache.xmlrpc.demo.proxy.AdderImpl.class);
+         */
+        try {
+			phm.addHandler("PhoneBookRPCServer", edu.ch.uniz.ds2011.a1.PhoneBookRPCServer.class);
+		} catch (XmlRpcException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		xmlRpcServer.setHandlerMapping(phm);
+        
+      
+        XmlRpcServerConfigImpl serverConfig = (XmlRpcServerConfigImpl) xmlRpcServer.getConfig();
+        serverConfig.setEnabledForExtensions(true);
+        serverConfig.setContentLengthOptional(false);
+
+        try {
+			webServer.start();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public PhoneBookRecord getUserByDetails(String userName, String address,
+				Long zipCode, String cityName) {
+			PhoneBookRecord record = null;
+			
+			for(int i=0; i < phonebook_array.size(); i++){
+            	PhoneBookRecord next_record = phonebook_array.get(i);
+            	if(next_record.getName().equals(userName) && next_record.getAddress().equals(address) &&
+            			next_record.getZipCode().equals(zipCode) && next_record.getCity().equals(cityName)){
+            		record = next_record;
+            	}
+            }
+			return record;
+	}
+		
+	public Object[] getUserDetails(String userName) {
+			Object[] obj = new Object[]{};
+			
+			for(int i=0; i < phonebook_array.size(); i++){
+	        	PhoneBookRecord next_record = phonebook_array.get(i);
+	        	if(next_record.getName().equals(userName)){
+	        		obj[i] = next_record;
+	        	}
+	        }
+			
+			return obj;
+	}
+	
+}

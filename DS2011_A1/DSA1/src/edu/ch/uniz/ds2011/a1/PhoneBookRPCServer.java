@@ -17,7 +17,6 @@ import org.apache.xmlrpc.webserver.WebServer;
 import edu.ch.uniz.ds2011.a1.PhoneBookServer.Session;
 
 public class PhoneBookRPCServer extends IPhoneBookServer {
-	private ArrayList<PhoneBookRecord> phonebook_array;
 	
 	@Override
 	protected ArrayList<PhoneBookRecord> loadData(InputStream dbis) {
@@ -51,37 +50,16 @@ public class PhoneBookRPCServer extends IPhoneBookServer {
 	}
 
 	@Override
-	public void start() {
-		AcmeLocator acme = new AcmeLocator();
-		InputStream phonebook_stream = acme.getPhoneBook();
-		ServerSocket serverSocket = null;
-		Session clientSession = null;
-		
-		phonebook_array = loadData(phonebook_stream); //load the raw phone records into the PhoneBook
-		
+	public void start() {	
 		// TODO Auto-generated method stub
 		WebServer webServer = new WebServer(PORT);
         
         XmlRpcServer xmlRpcServer = webServer.getXmlRpcServer();
       
         PropertyHandlerMapping phm = new PropertyHandlerMapping();
-        /* Load handler definitions from a property file.
-         * The property file might look like:
-         *   Calculator=org.apache.xmlrpc.demo.Calculator
-         *   org.apache.xmlrpc.demo.proxy.Adder=org.apache.xmlrpc.demo.proxy.AdderImpl
-         */
-        /*phm.load(Thread.currentThread().getContextClassLoader(),
-                 "MyHandlers.properties");*/
-
-        /* You may also provide the handler classes directly,
-         * like this:
-         * phm.addHandler("Calculator",
-         *     org.apache.xmlrpc.demo.Calculator.class);
-         * phm.addHandler(org.apache.xmlrpc.demo.proxy.Adder.class.getName(),
-         *     org.apache.xmlrpc.demo.proxy.AdderImpl.class);
-         */
+        
         try {
-			phm.addHandler("PhoneBookActions", edu.ch.uniz.ds2011.a1.PhoneBookRPCServer.PhoneBookActions.class);
+			phm.addHandler("PhoneBookRPCServer", edu.ch.uniz.ds2011.a1.PhoneBookRPCServer.class);
 		} catch (XmlRpcException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -101,11 +79,14 @@ public class PhoneBookRPCServer extends IPhoneBookServer {
 		}
 	}
 	
-	public class PhoneBookActions {
-		
-		public PhoneBookRecord getUserByDetails(String userName, String address,
+	public PhoneBookRecord getUserByDetails(String userName, String address,
 				Long zipCode, String cityName) {
 			PhoneBookRecord record = null;
+			ArrayList<PhoneBookRecord> phonebook_array;
+			AcmeLocator acme = new AcmeLocator();
+			InputStream phonebook_stream = acme.getPhoneBook();
+			
+			phonebook_array = loadData(phonebook_stream); //load the raw phone records into the PhoneBoo
 			
 			for(int i=0; i < phonebook_array.size(); i++){
             	PhoneBookRecord next_record = phonebook_array.get(i);
@@ -115,19 +96,30 @@ public class PhoneBookRPCServer extends IPhoneBookServer {
             	}
             }
 			return record;
-		}
+	}
 		
-		public ArrayList<PhoneBookRecord> getUserDetails(String userName) {
-			ArrayList<PhoneBookRecord> records = new ArrayList<PhoneBookRecord>();
+	public Object[] getUserDetails(String userName) {
+			ArrayList<PhoneBookRecord> phonebook_array;
+			ArrayList<PhoneBookRecord> result_tmp = new ArrayList<PhoneBookRecord>();
+			AcmeLocator acme = new AcmeLocator();
+			InputStream phonebook_stream = acme.getPhoneBook();
 			
+			phonebook_array = loadData(phonebook_stream); //load the raw phone records into the PhoneBook
+			
+			int obj_array_length = 0;
 			for(int i=0; i < phonebook_array.size(); i++){
 	        	PhoneBookRecord next_record = phonebook_array.get(i);
 	        	if(next_record.getName().equals(userName)){
-	        		records.add(next_record);
+	        		result_tmp.add(next_record);
+	        		obj_array_length++;
 	        	}
 	        }
+			Object[] obj = new Object[obj_array_length];
+			for(int i=0; i < result_tmp.size(); i++){
+	        	obj[i] = result_tmp.get(i);
+	        }
 			
-			return records;
-		}
+			return obj;
 	}
+	
 }

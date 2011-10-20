@@ -1,0 +1,83 @@
+package edu.ch.uniz.ds2011.a1;
+
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.ArrayList;
+
+import org.apache.xmlrpc.XmlRpcException;
+import org.apache.xmlrpc.client.XmlRpcClient;
+import org.apache.xmlrpc.client.XmlRpcClientConfigImpl;
+import org.apache.xmlrpc.client.XmlRpcCommonsTransportFactory;
+import org.apache.xmlrpc.client.XmlRpcLocalTransportFactory;
+
+public class PhoneBookRPCClient implements IPhoneBookClient {
+	XmlRpcClient client = null;
+	
+	@Override
+	public void connect(String address) {
+		XmlRpcClientConfigImpl config = new XmlRpcClientConfigImpl();
+		try {
+			config.setServerURL(new URL("http://127.0.0.1:44919/xmlrpc"));
+			config.setEnabledForExtensions(true);
+			client = new XmlRpcClient();
+			client.setTransportFactory(new XmlRpcCommonsTransportFactory(client));
+			client.setConfig(config);
+			//client.setTransportFactory(new XmlRpcLocalTransportFactory(client));			
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	@Override
+	public void disconnect() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public PhoneBookRecord getUserByDetails(String userName, String address,
+			Long zipCode, String cityName) {
+		Object[] params = new Object[]{userName, address, zipCode, cityName};
+		PhoneBookRecord result = null;
+		try {
+			result = (PhoneBookRecord) client.execute("PhoneBookActions.getUserByDetails", params);
+		} catch (XmlRpcException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return result;
+	}
+
+	@Override
+	public PhoneBookRecord getUserByPhone(String phoneNumber) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ArrayList<PhoneBookRecord> getUserDetails(String userName) {
+		Object[] params = new Object[]{userName};
+		Object[] obj = new Object[]{};
+		ArrayList<PhoneBookRecord> result = new ArrayList<PhoneBookRecord>();
+		try {
+			obj = (Object[]) client.execute("PhoneBookActions.getUserDetails", params);
+		} catch (XmlRpcException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		for(int i=0; i<obj.length;i++){
+			result.add((PhoneBookRecord) obj[i]);
+		}
+		return result;
+	}
+
+	@Override
+	public ArrayList<PhoneBookRecord> getUsersByCity(String cityName) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}
