@@ -79,23 +79,31 @@ public class PhoneBookRPCServer extends IPhoneBookServer {
 		}
 	}
 	
-	public PhoneBookRecord getUserByDetails(String userName, String address,
+	public Object[] getUserByDetails(String userName, String address,
 				Long zipCode, String cityName) {
-			PhoneBookRecord record = null;
-			ArrayList<PhoneBookRecord> phonebook_array;
-			AcmeLocator acme = new AcmeLocator();
-			InputStream phonebook_stream = acme.getPhoneBook();
-			
-			phonebook_array = loadData(phonebook_stream); //load the raw phone records into the PhoneBoo
-			
-			for(int i=0; i < phonebook_array.size(); i++){
-            	PhoneBookRecord next_record = phonebook_array.get(i);
-            	if(next_record.getName().equals(userName) && next_record.getAddress().equals(address) &&
-            			next_record.getZipCode().equals(zipCode) && next_record.getCity().equals(cityName)){
-            		record = next_record;
-            	}
-            }
-			return record;
+		ArrayList<PhoneBookRecord> phonebook_array;
+		ArrayList<PhoneBookRecord> result_tmp = new ArrayList<PhoneBookRecord>();
+		AcmeLocator acme = new AcmeLocator();
+		InputStream phonebook_stream = acme.getPhoneBook();
+		
+		phonebook_array = loadData(phonebook_stream); //load the raw phone records into the PhoneBook
+		
+		int obj_array_length = 0;
+		for(int i=0; i < phonebook_array.size(); i++){
+        	PhoneBookRecord next_record = phonebook_array.get(i);
+        	if(next_record.getName().equals(userName) && next_record.getAddress().equals(address) &&
+        			next_record.getZipCode().equals(zipCode) && next_record.getCity().equals(cityName)){
+        		result_tmp.add(next_record);
+        		obj_array_length++;
+        	}
+        }
+		
+		Object[] obj = new Object[obj_array_length];
+		for(int i=0; i < result_tmp.size(); i++){
+        	obj[i] = result_tmp.get(i);
+        }
+		
+		return obj;
 	}
 		
 	public Object[] getUserDetails(String userName) {
@@ -120,6 +128,54 @@ public class PhoneBookRPCServer extends IPhoneBookServer {
 	        }
 			
 			return obj;
+	}
+	
+	public Object[] getUsersByCity(String cityName) {
+		ArrayList<PhoneBookRecord> phonebook_array;
+		ArrayList<PhoneBookRecord> result_tmp = new ArrayList<PhoneBookRecord>();
+		AcmeLocator acme = new AcmeLocator();
+		InputStream phonebook_stream = acme.getPhoneBook();
+		
+		phonebook_array = loadData(phonebook_stream); //load the raw phone records into the PhoneBook
+		
+		int obj_array_length = 0;
+		for(int i=0; i < phonebook_array.size(); i++){
+        	PhoneBookRecord next_record = phonebook_array.get(i);
+        	if(next_record.getCity().equals(cityName)){
+        		result_tmp.add(next_record);
+        		obj_array_length++;
+        	}
+        }
+		Object[] obj = new Object[obj_array_length];
+		for(int i=0; i < result_tmp.size(); i++){
+        	obj[i] = result_tmp.get(i);
+        }
+		
+		return obj;
+	}
+	
+	public Object[] getUserByPhone(String phoneNumber) {
+		ArrayList<PhoneBookRecord> phonebook_array;
+		ArrayList<PhoneBookRecord> result_tmp = new ArrayList<PhoneBookRecord>();
+		AcmeLocator acme = new AcmeLocator();
+		InputStream phonebook_stream = acme.getPhoneBook();
+		
+		phonebook_array = loadData(phonebook_stream); //load the raw phone records into the PhoneBook
+		
+		int obj_array_length = 0;
+		for(int i=0; i < phonebook_array.size(); i++){
+        	PhoneBookRecord next_record = phonebook_array.get(i);
+        	if(next_record.getPhoneNumber().equals(phoneNumber)){
+        		result_tmp.add(next_record);
+        		obj_array_length++;
+        	}
+        }
+		Object[] obj = new Object[obj_array_length];
+		for(int i=0; i < result_tmp.size(); i++){
+        	obj[i] = result_tmp.get(i);
+        }
+		
+		return obj;
 	}
 	
 }

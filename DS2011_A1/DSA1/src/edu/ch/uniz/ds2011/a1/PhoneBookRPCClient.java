@@ -39,21 +39,37 @@ public class PhoneBookRPCClient implements IPhoneBookClient {
 	public PhoneBookRecord getUserByDetails(String userName, String address,
 			Long zipCode, String cityName) {
 		Object[] params = new Object[]{userName, address, zipCode, cityName};
+		Object[] obj = new Object[]{};
 		PhoneBookRecord result = null;
 		try {
-			result = (PhoneBookRecord) client.execute("PhoneBookRPCServer.getUserByDetails", params);
+			obj = (Object[]) client.execute("PhoneBookRPCServer.getUserByDetails", params);
 		} catch (XmlRpcException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
+		for(int i=0; i<obj.length;i++){
+			result = (PhoneBookRecord) obj[i];
+		}
 		return result;
 	}
 
 	@Override
 	public PhoneBookRecord getUserByPhone(String phoneNumber) {
-		// TODO Auto-generated method stub
-		return null;
+		Object[] params = new Object[]{phoneNumber};
+		Object[] obj = new Object[]{};
+		PhoneBookRecord result = null;
+		try {
+			obj = (Object[]) client.execute("PhoneBookRPCServer.getUserByPhone", params);
+		} catch (XmlRpcException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		for(int i=0; i<obj.length;i++){
+			result = (PhoneBookRecord) obj[i];
+		}
+		return result;
 	}
 
 	@Override
@@ -76,8 +92,20 @@ public class PhoneBookRPCClient implements IPhoneBookClient {
 
 	@Override
 	public ArrayList<PhoneBookRecord> getUsersByCity(String cityName) {
-		// TODO Auto-generated method stub
-		return null;
+		Object[] params = new Object[]{cityName};
+		Object[] obj = new Object[]{};
+		ArrayList<PhoneBookRecord> result = new ArrayList<PhoneBookRecord>();
+		try {
+			obj = (Object[]) client.execute("PhoneBookRPCServer.getUsersByCity", params);
+		} catch (XmlRpcException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		for(int i=0; i<obj.length;i++){
+			result.add((PhoneBookRecord) obj[i]);
+		}
+		return result;
 	}
 
 }
