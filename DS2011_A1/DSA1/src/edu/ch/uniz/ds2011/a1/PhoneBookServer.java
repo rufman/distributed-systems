@@ -93,7 +93,6 @@ public class PhoneBookServer extends IPhoneBookServer {
 					// create the client session, demonize the thread and start is
 					// the Session meta class will now do the message handeling (in a threaded fashion)
 					clientSession = new Session(clientSocket, phonebook_array);// start client threading
-					//clientSession.setDaemon(true);
 					clientSession.start();
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
